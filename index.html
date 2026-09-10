@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shamil Rathnayake | SR PHYSICS </title>
+ <link rel="shortcut icon" type="image" href="logo1.webp">
+<meta name="description" content="Induwara Dineth — AI Developer, Full Stack Developer & UI Designer. Portfolio, projects, and case studies.">
+<link rel="icon" type="image/webp" href="logo1.webp">
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@300;400;500;600;700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap" rel="stylesheet">
+
+<!-- Styles -->
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Grain / noise overlay -->
+<div class="noise-overlay"></div>
+
+<!-- ============ LOADER ============ -->
+<div class="loader" id="loader">
+  <div class="loader-glow"></div>
+  <div class="loader-inner">
+    <div class="loader-logo-fill" id="loaderLogoFill">
+      <div class="logo-mask logo-mask-outline"></div>
+      <div class="logo-mask logo-mask-fill" id="logoMaskFill"></div>
+    </div>
+    <div class="loader-brand">Shamil <span class="text-gold">Rathnayake</span></div>
+    <div class="loader-status" id="loaderStatus">Initializing...</div>
+    <div class="loader-bar-track">
+      <div class="loader-bar-fill" id="loaderBarFill"></div>
+    </div>
+    <div class="loader-percent" id="loaderPercent">0%</div>
+  </div>
+  <div class="loader-particles" id="loaderParticles"></div>
+</div>
+
+<!-- Scroll progress -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Custom cursor: ambient glow + ring + dot -->
+<div class="cursor-glow" id="cursorGlow"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- ============ NAVIGATION ============ -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#home" class="nav-logo"><img src="logo1-mask.webp" alt="SR Logo" class="nav-logo-img"></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home" class="nav-link active">Home</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#results" class="nav-link">Results</a>
+      <a href="#partners" class="nav-link">Student Reviews</a>
+      <a href="#projects" class="nav-link">Class</a>
+      
+      <a href="#blog" class="nav-link">Gallery</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <canvas class="hero-canvas" id="heroCanvas"></canvas>
+  <div class="aurora aurora-1"></div>
+  <div class="aurora aurora-2"></div>
+  <div class="hero-grid"></div>
+
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-badges">
+      
+        <span class="chip chip-gold">Nenik - Gampaha </span>
+          <span class="chip">Siyathmin - Kurunegala </span>
+        <span class="chip">Reliance - Kandy </span>
+        <span class="chip">All Island - Online🔴</span>
+      </div>
+
+      <p class="hero-eyebrow">Results oriented!</p>
+      <h1 class="hero-title">
+        Shamil <span class="italic-accent">Rathnayake</span>
+      </h1>
+      <div class="hero-roles" id="heroRoles">
+        <span class="role-text">Next gen physics</span>
+      </div>
+
+      <p class="hero-tagline"><i><b>#Next gen physics</b></i></p>
+
+      <div class="hero-cta">
+        <a href="https://siyathminapp.eclass.lk/" class="btn btn-primary">Student Portal</a>
+        <a href="#contact" class="btn btn-outline">Explore More</a>
+      </div>
+    </div>
+
+    <div class="hero-right" id="heroRight">
+      <div class="portrait-glow"></div>
+      <div class="portrait-wrap" id="portraitWrap">
+       <img src="1.webp" alt="HeroImage">
+      </div>
+
+      <!-- floating tech badges -->
+      <div class="float-badge fb-1" data-depth="0.6"><img src="https://img.icons8.com/color/48/atom.png" alt="Quantum Atom"></div>
+      <div class="float-badge fb-2" data-depth="0.9"><img src="https://img.icons8.com/color/48/magnet.png" alt="Magnetism"></div>
+      <div class="float-badge fb-3" data-depth="0.4"><span class="emoji-badge">🔭</span></div>
+      <div class="float-badge fb-4" data-depth="0.7"><span class="emoji-badge">🪐</span></div>
+      <div class="float-badge fb-5" data-depth="0.5"><img width="30" height="30" src="https://img.icons8.com/color/48/microscope.png" alt="Microscope"/></div>
+      <div class="float-badge fb-6" data-depth="0.8"><img src="https://img.icons8.com/color/48/dna-helix.png" alt="DNA Helix"></div>
+      <div class="float-badge fb-7" data-depth="0.6"><img width="32" height="32" src="https://img.icons8.com/color/48/test-tube.png" alt="Chemistry Flask"/></div>
+      <div class="float-badge fb-8" data-depth="1"><span class="emoji-badge">⚛️</span></div>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-line"><div class="scroll-dot"></div></div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="about" id="about">
+  <div class="section-inner">
+    <span class="eyebrow-pill" data-reveal>About The Tutor</span>
+
+    <div class="about-grid">
+      <div class="about-card about-text" data-reveal>
+        <h2 class="section-title">Shamil <span class="italic-accent">Rathnayaka</span></h2>
+        <p class="about-desc">මම <strong> ශමිල් රත්නායක.</strong> පළපුරුදු <strong> විදුලි හා ඉලෙක්ට්‍රොනික ඉංජිනේරුවෙකු</strong> මෙන්ම කැපවීමෙන් කටයුතු කරන ගුරුවරයෙකු ලෙස, සංකීර්ණ තාක්ෂණික සංකල්ප සරල, පැහැදිලි සහ ප්‍රායෝගික පාඩම් බවට පත් කිරීම මගේ ප්‍රධාන අරමුණයි.
+සිසුන් තුළ ශක්තිමත් විශ්ලේෂණාත්මක චින්තනය සහ ගැටලු විසඳීමේ හැකියාව වර්ධනය කරමින්, අභියෝගාත්මක විෂය කරුණු සාර්ථකව ජයගෙන, ඔවුන්ගේ උපරිම අධ්‍යාපනික හැකියාව කරා ළඟා වීමට අවශ්‍ය දැනුම, අවබෝධය සහ විශ්වාසය ගොඩනැගීම සඳහා මම කැපවී සිටිමි.
+<span class="text-gold">.</span></p>
+
+
+
+
+
+
+        <div class="social-row">
+         
+          
+          <a class="social-glass" href="https://www.facebook.com/share/1J1TgcuH3s/" aria-label="Facebook"><img src="https://cdn.simpleicons.org/facebook/221C12" alt=""></a>
+          <a class="social-glass" href="#" aria-label="Instagram"><img src="https://cdn.simpleicons.org/instagram/221C12" alt=""></a>
+          <a class="social-glass" href="https://t.me/SRPhysicsmain" aria-label="Telegram"><img src="https://cdn.simpleicons.org/telegram/221C12" alt=""></a>
+          <a class="social-glass" href="shamilrathnayakeoffical@gmail.com" aria-label="Email"><img src="https://cdn.simpleicons.org/gmail/221C12" alt=""></a>
+        </div>
+      </div>
+   
+      <div class="about-card about-portrait" data-reveal>
+        <div class="mini-portrait">
+          <div class="portrait-slider" id="portraitSlider">
+            <img src="mypic2.webp" alt="Shamil Rathnayaka" class="slide active">
+            <img src="mypic3.webp" alt="Shamil Rathnayaka" class="slide">
+            <img src="mypic4.webp" alt="Shamil Rathnayaka" class="slide">
+            <div class="slider-dots" id="portraitDots">
+              <span class="dot active" data-slide="0"></span>
+              <span class="dot" data-slide="1"></span>
+              <span class="dot" data-slide="2"></span>
+            </div>
+          </div>
+        </div>
+       <!--<p class="mini-caption">AI‑generated identity, hand‑tuned by a human who codes past midnight.</p> -->
+      </div>
+    </div>
+
+     <!-- stats -->
+    <div class="stats-row" data-reveal>
+      <div class="stat-card">
+        <span class="stat-num" data-count="1000">0</span><span class="stat-plus">+</span>
+        <span class="stat-label">Total A Passes </span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num" data-count="5">0</span><span class="stat-plus">+</span>
+        <span class="stat-label">Years Experience</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num" data-count="15">0</span><span class="stat-plus">+</span>
+        <span class="stat-label">Classes</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num stat-infinity" style="color: #000;">10000</span><span class="stat-plus">+</span>
+        <span class="stat-label">students reached</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ============ RESULTS (Horizontal Scroll) ============ -->
+<section class="education" id="results">
+  <div class="edu-bg-text">RESULTS</div>
+  <span class="eyebrow-pill edu-eyebrow" data-reveal>Top Performers</span>
+
+  <div class="edu-track-wrap">
+    <div class="edu-track" id="resultTrack">
+
+      <!-- Student 1 -->
+      <div class="student-card">
+        <div class="student-header">
+          <img src="c.webp" alt="Lahurini Edirisingha" class="student-avatar">
+          <div class="student-title">
+            <h3>Lahurini Edirisingha</h3>
+            <p class="student-school">Maliyadeva Balika Vidyalaya</p>
+          </div>
+        </div>
+
+        <div class="rank-container">
+          <div class="rank-box">
+            <span class="rank-label">⭐ Island Rank</span>
+            <span class="rank-badge island-badge">#</span>
+          </div>
+          <div class="rank-box">
+            <span class="rank-label">🎓 Discrict Rank</span>
+            <span class="rank-badge inst-badge">#1</span>
+          </div>
+        </div>
+
+        <div class="institute-footer">
+          <span class="inst-icon">🎓</span>
+          <span>Institute: <strong>Siyathmin</strong></span>
+        </div>
+      </div>
+
+      <!-- Student 2 -->
+      <div class="student-card">
+        <div class="student-header">
+          <img src="d.webp" alt="Induwara Bandara " class="student-avatar">
+          <div class="student-title">
+            <h3>Induwara Bandara </h3>
+            <p class="student-school">Maliyadeva Boys College</p>
+          </div>
+        </div>
+
+        <div class="rank-container">
+          <div class="rank-box">
+            <span class="rank-label">⭐ Island Rank</span>
+            <span class="rank-badge island-badge">#</span>
+          </div>
+          <div class="rank-box">
+            <span class="rank-label">🎓 Discrict Rankk</span>
+            <span class="rank-badge inst-badge">#3</span>
+          </div>
+        </div>
+
+        <div class="institute-footer">
+          <span class="inst-icon">🎓</span>
+          <span>Institute: <strong>Siyathmin</strong></span>
+        </div>
+      </div>
+
+      <!-- Student 3 -->
+      <div class="student-card">
+        <div class="student-header">
+          <img src="E.jpg.webp" alt="Nirali Edirisingha" class="student-avatar">
+          <div class="student-title">
+            <h3>Nirali Edirisingha</h3>
+            <p class="student-school">Maliyadeva Balika Vidyalaya</p>
+          </div>
+        </div>
+
+        <div class="rank-container">
+          <div class="rank-box">
+            <span class="rank-label">⭐ Island Rank</span>
+            <span class="rank-badge island-badge">#</span>
+          </div>
+          <div class="rank-box">
+            <span class="rank-label">🎓 Discrict Rank</span>
+            <span class="rank-badge inst-badge">#3</span>
+          </div>
+        </div>
+
+        <div class="institute-footer">
+          <span class="inst-icon">🎓</span>
+          <span>Institute: <strong>Siyathmin</strong></span>
+        </div>
+      </div>
+
+
+            <!-- Student 4 -->
+      <div class="student-card">
+        <div class="student-header">
+          <img src="F.jpg.webp" alt="Pasindu Hasaranaga" class="student-avatar">
+          <div class="student-title">
+            <h3>Pasindu Hasaranaga</h3>
+            <p class="student-school">Maliyadeva College</p>
+          </div>
+        </div>
+
+        <div class="rank-container">
+          <div class="rank-box">
+            <span class="rank-label">⭐ Island Rank</span>
+            <span class="rank-badge island-badge">#</span>
+          </div>
+          <div class="rank-box">
+            <span class="rank-label">🎓 Discrict Rank</span>
+            <span class="rank-badge inst-badge">#3</span>
+          </div>
+        </div>
+
+        <div class="institute-footer">
+          <span class="inst-icon">🎓</span>
+          <span>Institute: <strong>Siyathmin</strong></span>
+        </div>
+      </div>
+
+
+            <!-- Student 5 -->
+      <div class="student-card">
+        <div class="student-header">
+          <img src="G.jpg.webp" alt="Raindu Rashmina" class="student-avatar">
+          <div class="student-title">
+            <h3>Raindu Rashmina</h3>
+            <p class="student-school">Maliyadeva College</p>
+          </div>
+        </div>
+
+        <div class="rank-container">
+          <div class="rank-box">
+            <span class="rank-label">⭐ Island Rank</span>
+            <span class="rank-badge island-badge">#</span>
+          </div>
+          <div class="rank-box">
+            <span class="rank-label">🎓 Discrict Rank</span>
+            <span class="rank-badge inst-badge">#3</span>
+          </div>
+        </div>
+
+        <div class="institute-footer">
+          <span class="inst-icon">🎓</span>
+          <span>Institute: <strong>Siyathmin</strong></span>
+        </div>
+      </div>
+
+
+            <!-- Student 6 -->
+      <div class="student-card">
+        <div class="student-header">
+          <img src="c.webp" alt="Linali Athukorala" class="student-avatar">
+          <div class="student-title">
+            <h3>Linali Athukorala</h3>
+            <p class="student-school">Maliyadeva Balika Vidyalaya </p>
+          </div>
+        </div>
+
+        <div class="rank-container">
+          <div class="rank-box">
+            <span class="rank-label">⭐ Island Rank</span>
+            <span class="rank-badge island-badge">#</span>
+          </div>
+          <div class="rank-box">
+            <span class="rank-label">🎓 Discrict Rank</span>
+            <span class="rank-badge inst-badge">#4</span>
+          </div>
+        </div>
+
+        <div class="institute-footer">
+          <span class="inst-icon">🎓</span>
+          <span>Institute: <strong>Siyathmin</strong></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="edu-hint">← scroll →</div>
+</section>
+
+
+
+
+
+<!-- ============ STUDENT REVIEWS ============ -->
+<section class="reviews" id="partners">
+  <div class="section-inner">
+    <span class="eyebrow-pill" data-reveal>Testimonials</span>
+    <h2 class="section-title" data-reveal>Student <span class="italic-accent">Reviews</span></h2>
+    <p class="section-sub" data-reveal>What students say about Sir's class.</p>
+
+    <div class="reviews-grid" data-reveal>
+
+      <div class="review-card">
+        <img class="review-card-img" src="A.jpg.webp" alt="Student name">
+        <span class="review-card-stars">★★★★★</span>
+        <p class="review-card-text">“Physics වලට මට තිබුණු ලොකුම ප්‍රශ්නය තමයි theory එක තේරුණත් questions කරන්න ගියාම stuck වෙන එක. Sirගේ class එකෙන් theory එකත් එක්ක ඒක questions වලට apply කරන විදිහ හොඳටම තේරුම් ගත්තා. ඒ නිසා exam එක ළං වෙද්දි Physics ගැන ලොකු confidence එකක් තිබුණා. අවසානයේ Physics වලට A එකක් ගන්න පුළුවන් වුණේ Sirගේ guidance එක නිසා. ❤️”</p>
+        <span class="review-card-name">Dewmini Amarasinghe</span>
+      </div>
+
+      <div class="review-card">
+        <img class="review-card-img" src="B.jpg.webp" alt="Student name">
+        <span class="review-card-stars">★★★★★</span>
+        <p class="review-card-text">“Sirගේ class එකේ මට වැඩියෙන්ම කැමති දෙයක් තමයි කිසිම theory එකක් මතක තියාගන්න විතරක් නොදී, ඒක ඇත්තටම තේරුම් කරලා දෙන එක. අමාරු පාඩම් පවා සරලව තේරුම් ගන්න පුළුවන් විදිහට Sir explain කරනවා. Past papers සහ paper discussions නිසා exam එකට හොඳ preparation එකක් ලැබුණා. Physics A එකක් ගන්න මට Sirගෙන් ලැබුණු support එක ගොඩක් වටිනවා. 🔥”</p>
+        <span class="review-card-name">Hasith Nettikumara</span>
+      </div>
+
+      <div class="review-card">
+        <img class="review-card-img" src="d.webp" alt="Student name">
+        <span class="review-card-stars">★★★★★</span>
+        <p class="review-card-text">“Physics වලින් A එකක් ගන්න මගේ target එක තිබුණත්, ඒකට යන correct path එක මුලින්ම මට තේරුණේ නෑ. Sirගේ class එකෙන් theory, questions, past papers හැමදේම systematic විදිහට කරපු නිසා මට මගේම study plan එකක් හදාගන්න පුළුවන් වුණා. Sir හැම වෙලාවෙම අපිව motivate කරපු එකත් ලොකු දෙයක්. අවසානයේ target කරපු A එක ගන්න පුළුවන් වුණා. ❤️‍🔥”</p>
+        <span class="review-card-name">Induwara Bandara </span>
+      </div>
+
+       <div class="review-card">
+        <img class="review-card-img" src="E.jpg.webp" alt="Student name">
+        <span class="review-card-stars">★★★★★</span>
+        <p class="review-card-text">“Sirගේ Physics class එක මට වෙනස් වුණේ Physics විෂය ගැන මගේ attitude එකම වෙනස් කරපු නිසා. මුලදී අමාරුයි කියලා හිතුණු concepts පස්සේ questions වලට confidently use කරන්න පුළුවන් වුණා. Class එකේ කරන paper practice එකත් exam එකේදී ගොඩක් help වුණා. Theory එක විතරක් නෙවෙයි, exam එකට ලියන විදිහත් ඉගෙනගන්න ලැබුණා. Physics වල A එකක් ගන්න Sirගේ class එක මට ලොකු strength එකක් වුණා. 💯”</p>
+        <span class="review-card-name">Nirali Heshala</span>
+      </div>
+
+       <div class="review-card">
+        <img class="review-card-img" src="F.jpg.webp" alt="Student name">
+        <span class="review-card-stars">★★★★★</span>
+        <p class="review-card-text">“A/L Physics වලින් A එකක් ගන්න මට ලැබුණු support එක ගැන මම ගොඩක් සතුටුයි. Sirගේ explanations හරිම clear. එක පාරක් තේරෙන්නේ නැති දෙයක් වුණත් ආයෙත් explain කරලා දෙන නිසා class එකේදී doubts තියාගෙන ඉන්න අවශ්‍ය වුණේ නෑ. Theory එක හොඳට build කරගෙන, papers වලින් ඒක practice කරපු නිසා exam එකට යනකොට ලොකු confidence එකක් තිබුණා. Physics A එකකට යන ගමනේ Sirගේ class එක මට ගොඩක් වැදගත් වුණා. ❤️⚡”</p>
+        <span class="review-card-name">Pasindu Hasaranaga</span>
+      </div>
+
+       <div class="review-card">
+        <img class="review-card-img" src="G.jpg.webp" alt="Student name">
+        <span class="review-card-stars">★★★★★</span>
+        <p class="review-card-text">“Sirගේ Physics class එකට ආවට පස්සේ Physics ගැන තිබුණු මගේ අදහස ගොඩක් වෙනස් වුණා. මුලදී අමාරුයි කියලා හිතුණු දේවල් Sir සරලව තේරුම් කරලා දුන්න නිසා questions කරන්නත් ලේසි වුණා. Class එකේ papers කරපු එකත් exam එකට ගොඩක් help වුණා. අන්තිමට Physics වලින් A එකක් ගන්නත් පුළුවන් වුණා. ❤️”</p>
+        <span class="review-card-name">Raindu Rashmina</span>
+      </div>
+
+      
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ============OUR Action Plan 🏅 ============ -->
+<section class="playground" id="projects">
+  <div class="section-inner">
+    <section class="process-section">
+  <h2 class="process-title">OUR Action Plan 🏅</h2>
+  
+  <div class="process-grid">
+    <!-- Item 1 -->
+    <div class="process-card">
+      <h3 class="card-title">Theory</h3>
+      <p class="card-desc">
+        විෂය නිර්දේශයට අදාළ සියලුම මූලික සංකල්ප පැහැදිලිව හා ක්‍රමානුකූලව අවබෝධ කරගනිමින්, ගැඹුරු දැනුමක් ගොඩනගා ගැනීමට අවශ්‍ය මඟපෙන්වීම.
+      </p>
+    </div>
+
+    <!-- Item 2 -->
+    <div class="process-card">
+      <h3 class="card-title">Revision</h3>
+      <p class="card-desc">
+        ඉගෙනගත් සියලුම පාඩම් නැවත ක්‍රමානුකූලව ආවර්ජනය කරමින්, දැනුමේ අඩුපාඩු හඳුනාගෙන විභාගයට අවශ්‍ය මට්ටමේ සූදානමක් ගොඩනැගීම.
+      </p>
+    </div>
+
+    <!-- Item 3 -->
+    <div class="process-card">
+      <h3 class="card-title">Paper Class</h3>
+      <p class="card-desc">
+        ගුරුවරයා විසින් නිර්මීත සහ වැදගත් ආදර්ශ ප්‍රශ්න ඇසුරින් Exam Target Papers  විශාල ප්‍රශ්න පුහුණුවක් ලබාදෙමින්, විභාග ප්‍රශ්නවලට නිවැරදිව හා වේගවත්ව මුහුණදීමට පුහුණු කිරීම.
+      </p>
+    </div>
+
+    <!-- Item 4 -->
+    <div class="process-card">
+      <h3 class="card-title">Final Practical </h3>
+      <p class="card-desc">
+      විභාගයට පෙර අවශ්‍ය සියලුම ප්‍රායෝගික පරීක්ෂණ හා ක්‍රමවේද නැවත ආවර්ජනය කරමින්, ප්‍රායෝගික කොටස සඳහා පූර්ණ විශ්වාසයක් ගොඩනගා ගැනීමට මඟපෙන්වීම.
+      </p>
+    </div>
+
+    <!-- Item 5 -->
+    <div class="process-card">
+      <h3 class="card-title">Speed Theory Class</h3>
+      <p class="card-desc">
+        සම්පූර්ණ භෞතික විද්‍යා විෂය නිර්දේශයම වසර එකහමාරක් ඇතුළත ක්‍රමානුකූලව ආවරණය කරමින්, අවශ්‍ය සියලුම සිද්ධාන්ත සරලව හා පැහැදිලිව අවබෝධ කරදීම.
+
+      </p>
+    </div>
+
+    <!-- Item 6 -->
+    <div class="process-card">
+      <h3 class="card-title">Full Paper Class</h3>
+      <p class="card-desc">
+        සම්පූර්ණ ප්‍රශ්න පත්‍ර නියමිත විභාග කාලය තුළ විසඳමින්, කාල කළමනාකරණය, පිළිතුරු ලිවීම සහ ලකුණු ලබාගැනීමේ උපක්‍රම පිළිබඳ ප්‍රායෝගික පුහුණුව.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ GALLERY ============ -->
+<section class="gallery" id="blog">
+  <div class="section-inner">
+    <span class="eyebrow-pill" data-reveal>Gallery</span>
+    <h2 class="section-title" data-reveal>Class <span class="italic-accent">Moments</span></h2>
+    <p class="section-sub" data-reveal>A look inside Sir's physics classes — sessions, discussions and milestones.</p>
+
+    <div class="gallery-slideshow" id="gallerySlideshow" data-reveal>
+      <div class="gallery-track" id="galleryTrack">
+        <div class="gallery-slide active"><img src="g11.webp" alt="Class photo 1" loading="lazy"></div>
+        <div class="gallery-slide"><img src="g1.webp" alt="Class photo 2" loading="lazy"></div>
+  
+  
+      </div>
+
+      <button class="gallery-arrow gallery-prev" id="galleryPrev" aria-label="Previous photo">❮</button>
+      <button class="gallery-arrow gallery-next" id="galleryNext" aria-label="Next photo">❯</button>
+
+      <div class="gallery-bottom">
+        <span class="gallery-counter" id="galleryCounter">01 / 20</span>
+        <div class="gallery-progress"><div class="gallery-progress-fill" id="galleryProgressFill"></div></div>
+        <button class="gallery-play" id="galleryPlayToggle" aria-label="Pause slideshow">⏸</button>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============ Telegram Channels ============ -->
+<div class="telegram-section">
+  <div class="telegram-header">
+    <h2><img src="https://img.icons8.com/fluency/48/telegram-app.png" alt="logo" class="tg-title-logo">Telegram<span class="tg-icon-badge"></span></h2>
+  </div>
+
+  <div class="telegram-grid">
+    <!-- Channel Card 1 -->
+    <a href="https://t.me/SR_28THD" target="_blank" class="tg-card">
+      <img src="tlogo1.webp" alt="2028 Theory" class="tg-avatar">
+      <div class="tg-details">
+        <h3>2028 Theory</h3>
+        <p>@SR_28THD</p>
+      </div>
+    </a>
+
+    <!-- Channel Card 2 -->
+    <a href="https://t.me/SR_27THD" target="_blank" class="tg-card">
+      <img src="tlogo2.webp" alt="2027 Theory" class="tg-avatar">
+      <div class="tg-details">
+        <h3>2027 Theory</h3>
+        <p>@SR_27THD</p>
+      </div>
+    </a>
+
+    <!-- Channel Card 3 -->
+    <a href="https://t.me/SR_REV27" target="_blank" class="tg-card">
+      <img src="tlogo3.webp" alt="2026 Theory" class="tg-avatar">
+      <div class="tg-details">
+        <h3>2027 Revision</h3>
+        <p>@SR_REV27</p>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+  <div class="contact-particles" id="contactParticles"></div>
+  <div class="section-inner">
+    <span class="eyebrow-pill" data-reveal>Contact</span>
+    <h2 class="section-title contact-title" data-reveal>Get in <span class="text-gold">Touch</span> with <span class="text-gold">Sir</span></h2>
+    <p class="section-sub" data-reveal>Have a question about classes, registration, or results? Reach out directly — whichever way is easiest for you.</p>
+
+    <div class="quick-connect" data-reveal>
+      <a class="connect-btn connect-whatsapp" href="https://wa.me/+94773090910" target="_blank" rel="noopener" style="--i:0;">
+        <span class="connect-icon"><img src="https://cdn.simpleicons.org/whatsapp/FFFFFF" alt=""></span>
+        <span class="connect-text"><span class="connect-label">WhatsApp</span><span class="connect-sub">Chat instantly</span></span>
+      </a>
+      <a class="connect-btn connect-telegram" href="https://t.me/SRPhysicsmain" target="_blank" rel="noopener" style="--i:1;">
+        <span class="connect-icon"><img src="https://cdn.simpleicons.org/telegram/FFFFFF" alt=""></span>
+        <span class="connect-text"><span class="connect-label">Telegram</span><span class="connect-sub">Join the channel</span></span>
+      </a>
+      <a class="connect-btn connect-phone" href="tel:+94773090910" style="--i:2;">
+        <span class="connect-icon">📞</span>
+        <span class="connect-text"><span class="connect-label">Call</span><span class="connect-sub">Speak directly</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="section-inner footer-inner">
+    <div class="footer-logo">Shamil Rathnayaka<span class="eye"> | Physics</span></div>
+    <nav class="footer-nav">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#results">Results</a>
+      <a href="#partners">Student Reviews</a>
+      <a href="#projects">Class</a>
+      <a href="#blog">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="social-row">
+      <a class="social-glass" href="https://www.youtube.com/@ShamilRathnayake" aria-label="YouTube"><img src="https://img.icons8.com/color/48/youtube-play.png" alt=""></a>
+      <a class="social-glass" href="#" aria-label="instagram"><img width="30" height="30" src="https://img.icons8.com/color/48/instagram-new.png" alt="linkedin"/></a>
+      <a class="social-glass" href="https://www.facebook.com/share/1J1TgcuH3s/" aria-label="Facebook"><img src="https://img.icons8.com/color/48/facebook-new.png" alt=""></a>
+      <a class="social-glass" href="https://www.tiktok.com/@shamilrathnayake_physics?is_from_webapp=1&sender_device=pc" aria-label="TikTok"><img src="https://img.icons8.com/color/48/tiktok.png" alt=""></a>
+    </div>
+    <p class="footer-copy">© 2026 · Designed &amp; Developed by <strong>Induwara Dineth</strong></p>
+  </div>
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
