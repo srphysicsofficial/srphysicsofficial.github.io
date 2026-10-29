@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Physics Simulations | SR Physics – Shamil Rathnayake</title>
+  <meta name="description" content="Explore 75 interactive PhET simulations organized by all 11 units of the Sri Lankan G.C.E. A/L Physics syllabus for Grades 12 and 13, without leaving SR Physics.">
+  <meta name="author" content="SR Physics – Shamil Rathnayake">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#090909">
+  <link rel="canonical" href="https://srphysics.lk/simulations.html">
+  <link rel="icon" type="image/webp" href="logo1.webp">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SR Physics">
+  <meta property="og:url" content="https://srphysics.lk/simulations.html">
+  <meta property="og:title" content="Interactive Physics Simulations | SR Physics">
+  <meta property="og:description" content="Explore interactive PhET physics simulations right inside the SR Physics website, with a dedicated fullscreen laboratory.">
+  <meta property="og:image" content="https://srphysics.lk/logo1.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg:#090909; --bg-elev:#0f0d13; --card:#14111c;
+      --text:#f3f1fb; --muted:#9c98ad; --subtle:#625d75;
+      --purple:#8b5cf6; --purple-light:#c4a8ff; --gold:#ffd166;
+      --border:rgba(139,92,246,.19); --border-soft:rgba(255,255,255,.075);
+      --nav-bg:rgba(9,9,9,.78); --surface:rgba(139,92,246,.07);
+    }
+    *,*::before,*::after { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { background:var(--bg);color:var(--text);margin:0;min-height:100vh;font-family:'Poppins',sans-serif;line-height:1.55;overflow-x:hidden; }
+    body::before { content:'';position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse 56vw 45vw at 87% 6%,rgba(139,92,246,.11),transparent 70%),radial-gradient(ellipse 45vw 32vw at 7% 49%,rgba(255,209,102,.035),transparent 72%); }
+    body.screen-locked { overflow:hidden; }
+    a { color:inherit;text-decoration:none; }
+    button,input { font:inherit; }
+    button { cursor:pointer; }
+    button:disabled { cursor:not-allowed;opacity:.45; }
+    button,a,input { -webkit-tap-highlight-color:transparent; }
+    :focus-visible { outline:2px solid var(--gold);outline-offset:3px; }
+    ::selection { background:var(--purple);color:#090909; }
+    ::-webkit-scrollbar { width:9px;height:9px; }
+    ::-webkit-scrollbar-track { background:#090909; }
+    ::-webkit-scrollbar-thumb { background:#493565;border-radius:99px;border:2px solid #090909; }
+    .skip { position:fixed;top:-100px;left:18px;z-index:2000;background:var(--gold);padding:10px 14px;color:#090909;border-radius:8px; }
+    .skip:focus { top:12px; }
+
+    /* Navigation matches the original SR Physics theme. */
+    .nav { position:fixed;top:0;left:0;right:0;z-index:900;padding:18px clamp(16px,4vw,40px);transition:padding .3s; }
+    .nav.scrolled { padding-top:10px; }
+    .nav-inner { max-width:1240px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:66px;padding:12px 22px;border-radius:999px;background:var(--nav-bg);border:1px solid var(--border);backdrop-filter:blur(20px);box-shadow:0 10px 40px -14px rgba(0,0,0,.65); }
+    .nav.scrolled .nav-inner { background:rgba(9,9,9,.96); }
+    .nav-logo { display:flex;align-items:center;flex-shrink:0; }
+    .nav-logo img { height:38px;width:auto;filter:drop-shadow(0 2px 6px rgba(139,92,246,.28));transition:transform .3s; }
+    .nav-logo:hover img { transform:scale(1.06); }
+    .nav-links { display:flex;align-items:center;gap:6px; }
+    .nav-link { color:var(--muted);font-size:.85rem;font-weight:500;white-space:nowrap;padding:9px 16px;border-radius:999px;transition:color .25s,background .25s; }
+    .nav-link:hover,.nav-link.active { color:var(--purple-light);background:rgba(139,92,246,.12); }
+    .nav-toggle { display:none;background:none;border:0;padding:6px 2px;flex-direction:column;gap:5px; }
+    .nav-toggle span { width:25px;height:2px;background:var(--text);border-radius:2px; }
+    @media(max-width:1080px) {
+      .nav-links { position:fixed;top:83px;left:16px;right:16px;display:flex;flex-direction:column;align-items:stretch;padding:12px;background:rgba(12,10,18,.98);border:1px solid var(--border);border-radius:20px;box-shadow:0 18px 45px rgba(0,0,0,.35);transform:translateY(-12px);opacity:0;pointer-events:none;transition:transform .25s,opacity .25s; }
+      .nav-links.open { transform:translateY(0);opacity:1;pointer-events:auto; }
+      .nav-link { padding:12px 16px; }
+      .nav-toggle { display:flex; }
+    }
+
+    .wrap { max-width:1260px;margin:auto;padding-left:clamp(18px,4vw,44px);padding-right:clamp(18px,4vw,44px); }
+    .hero { position:relative;padding-top:160px;padding-bottom:54px;overflow:hidden; }
+    .hero::after { content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,rgba(139,92,246,.27),transparent); }
+    .hero-inner { display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:48px;align-items:center; }
+    .eyebrow { display:inline-flex;gap:9px;align-items:center;padding:7px 13px;border-radius:99px;border:1px solid rgba(255,209,102,.24);background:rgba(255,209,102,.06);color:var(--gold);font-family:'Space Grotesk',sans-serif;font-size:.71rem;text-transform:uppercase;font-weight:700;letter-spacing:.13em; }
+    .eyebrow-dot { width:7px;height:7px;background:var(--gold);border-radius:50%;box-shadow:0 0 0 4px rgba(255,209,102,.1); }
+    .hero h1 { font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(2.65rem,5.2vw,5.1rem);line-height:1.065;letter-spacing:-.065em;margin:22px 0 17px; }
+    .hero h1 em { font-style:normal;background:linear-gradient(95deg,#ffd166 5%,#c4a8ff 90%);background-clip:text;-webkit-background-clip:text;color:transparent; }
+    .hero p { color:var(--muted);font-size:clamp(.91rem,1.35vw,1.03rem);line-height:1.85;max-width:630px;margin:0; }
+    .hero-statrow { display:flex;flex-wrap:wrap;gap:12px;margin-top:30px; }
+    .hero-pill { display:flex;align-items:center;gap:10px;border:1px solid var(--border);background:rgba(139,92,246,.06);border-radius:15px;padding:12px 15px;color:var(--muted);font-size:.78rem; }
+    .hero-pill strong { font-family:'Space Grotesk',sans-serif;font-size:1.25rem;line-height:1;color:var(--text); }
+    .hero-art { position:relative;width:250px;height:250px;place-self:center;filter:drop-shadow(0 15px 50px rgba(139,92,246,.14)); }
+    .orbit { position:absolute;inset:23px;border:1px solid rgba(139,92,246,.37);border-radius:50%;transform:rotate(-30deg) scaleY(.55); }
+    .orbit:nth-child(2) { transform:rotate(35deg) scaleY(.55); }
+    .orbit:nth-child(3) { transform:rotate(92deg) scaleY(.55); }
+    .atom-core { position:absolute;top:50%;left:50%;width:47px;height:47px;margin:-23.5px;border-radius:50%;background:radial-gradient(circle at 33% 27%,#eddefd,#9a71f6 55%,#5e2bbb);box-shadow:0 0 30px rgba(139,92,246,.7),0 0 65px rgba(139,92,246,.17); }
+    .atom-speck { position:absolute;width:10px;height:10px;border-radius:50%;background:#ffd166;box-shadow:0 0 17px #ffd166; }
+    .atom-speck.one { top:67px;left:53px; }.atom-speck.two { top:194px;left:171px;width:8px;height:8px; }.atom-speck.three { top:104px;left:226px;width:6px;height:6px; }
+
+    .lab { padding-top:36px;padding-bottom:90px; }
+    .lab-heading { display:flex;align-items:flex-end;justify-content:space-between;gap:22px;margin-bottom:24px; }
+    .mini-label { color:var(--purple-light);font:700 .74rem 'Space Grotesk',sans-serif;text-transform:uppercase;letter-spacing:.16em; }
+    .lab-heading h2 { font:700 clamp(1.6rem,3vw,2.35rem)/1.1 'Space Grotesk',sans-serif;letter-spacing:-.045em;margin:8px 0 0; }
+    .lab-heading p { max-width:400px;color:var(--muted);font-size:.84rem;line-height:1.8;margin:0; }
+    .tools { display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:22px; }
+    .search-field { display:flex;align-items:center;gap:12px;min-width:245px;flex:1;border:1px solid var(--border);background:#100e15;padding:0 17px;border-radius:14px;transition:border-color .2s; }
+    .search-field:focus-within { border-color:rgba(196,168,255,.65); }
+    .search-field svg { flex:none;width:19px;height:19px;stroke:var(--purple-light);fill:none;stroke-width:1.8; }
+    .search-field input { background:transparent;border:0;outline:0;color:var(--text);width:100%;padding:15px 0;font-size:.9rem; }
+    .search-field input::placeholder { color:#817993; }
+    .clear-btn { display:none;border:0;background:transparent;color:var(--muted);font-size:1.3rem;line-height:1;padding:5px; }
+    .clear-btn.show { display:block; }
+    .hint { font-size:.78rem;color:var(--muted);white-space:nowrap; }
+    .syllabus-head { display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;margin:8px 0 15px; }
+    .grade-bar { display:flex;align-items:center;gap:6px;padding:4px;background:rgba(139,92,246,.07);border:1px solid var(--border);border-radius:999px;flex-wrap:wrap; }
+    .grade-btn { padding:8px 14px;border:0;border-radius:999px;background:transparent;color:var(--muted);font-size:.76rem;font-weight:600;white-space:nowrap; }
+    .grade-btn.active { background:var(--purple);color:#fff; }
+    .syllabus-filters { display:grid;gap:9px;margin-bottom:22px; }
+    .syllabus-group { display:flex;gap:8px;flex-wrap:wrap;align-items:center; }
+    .syllabus-group-label { flex:0 0 77px;font-size:.69rem;color:var(--subtle);font-weight:700;letter-spacing:.045em;text-transform:uppercase; }
+    .category-bar { display:flex;gap:8px;flex-wrap:wrap;margin:0 0 22px; }
+    .filter-btn { padding:9px 13px;border:1px solid var(--border);border-radius:99px;background:rgba(139,92,246,.035);color:var(--muted);font-weight:500;font-size:.76rem;transition:color .2s,background .2s,border-color .2s; }
+    .filter-btn:hover { color:var(--text);border-color:rgba(139,92,246,.6); }
+    .filter-btn.active { background:var(--purple);border-color:var(--purple);color:#fff; }
+    .filter-btn small { color:inherit;opacity:.77;padding-left:3px; }
+    .workspace { display:grid;grid-template-columns:minmax(290px,355px) minmax(0,1fr);gap:20px;align-items:start; }
+    .directory,.viewer { border:1px solid var(--border);border-radius:22px;background:linear-gradient(145deg,#14111c,#0e0c11);box-shadow:0 17px 54px rgba(0,0,0,.17);min-width:0; }
+    .directory { padding:17px; }
+    .directory-head { display:flex;justify-content:space-between;align-items:center;gap:10px;padding:4px 5px 16px;border-bottom:1px solid var(--border-soft); }
+    .directory-head strong { font:600 .91rem 'Space Grotesk',sans-serif; }
+    .directory-head span { color:var(--muted);font-size:.75rem; }
+    .sim-list { max-height:650px;min-height:260px;overflow-y:auto;padding:12px 4px 4px;display:flex;flex-direction:column;gap:7px;scrollbar-width:thin;scrollbar-color:#5e417f transparent; }
+    .sim-item { width:100%;display:flex;align-items:center;gap:11px;text-align:left;color:var(--text);background:transparent;border:1px solid transparent;border-radius:13px;padding:12px;transition:background .2s,border .2s,transform .2s; }
+    .sim-item:hover { background:rgba(139,92,246,.08);border-color:rgba(139,92,246,.15); }
+    .sim-item.selected { background:rgba(139,92,246,.15);border-color:rgba(139,92,246,.5); }
+    .sim-icon { width:42px;height:42px;display:grid;place-items:center;flex:none;border-radius:12px;background:rgba(139,92,246,.1);font-size:1.25rem; }
+    .sim-item.selected .sim-icon { background:rgba(139,92,246,.23); }
+    .sim-item-text { flex:1;min-width:0; }
+    .sim-item-title { font:600 .83rem/1.35 'Poppins',sans-serif;display:block; }
+    .sim-item-cat { color:var(--muted);font-size:.7rem;display:block;margin-top:3px; }
+    .sim-item-arrow { font-size:1rem;color:var(--subtle); }
+    .sim-item.selected .sim-item-arrow { color:var(--gold); }
+    .empty-results { padding:40px 14px;text-align:center;color:var(--muted);font-size:.85rem; }
+    .viewer { padding:20px;position:sticky;top:118px; }
+    .viewer-head { display:flex;align-items:start;justify-content:space-between;gap:15px;margin-bottom:17px; }
+    .viewer-kicker { display:flex;align-items:center;gap:8px;color:var(--gold);text-transform:uppercase;font:700 .67rem 'Space Grotesk',sans-serif;letter-spacing:.13em; }
+    .viewer-kicker::before { content:'';width:6px;height:6px;border-radius:50%;background:var(--gold); }
+    .viewer h3 { font:700 clamp(1.23rem,2.5vw,1.75rem)/1.25 'Space Grotesk',sans-serif;letter-spacing:-.035em;margin:8px 0 6px; }
+    .viewer-category { font-size:.77rem;color:var(--muted);margin:0; }
+    .viewer-screen { position:relative;overflow:hidden;border-radius:15px;background:#08070a;border:1px solid rgba(196,168,255,.17);aspect-ratio:834/504;min-height:300px;isolation:isolate; }
+    .viewer-screen iframe { display:block;width:100%;height:100%;border:0;position:absolute;inset:0;background:#fff; }
+    .viewer-loading { display:flex;position:absolute;inset:0;z-index:3;background:#0c0a11;color:var(--muted);flex-direction:column;align-items:center;justify-content:center;gap:15px;font-size:.84rem;text-align:center;padding:16px;pointer-events:none; }
+    .viewer-loading[hidden] { display:none; }
+    .viewer-loading { gap:9px;background:radial-gradient(ellipse at 50% 40%,#21142f 0%,#0b0911 65%,#08070c 100%);pointer-events:auto; }
+    .brand-loader { display:grid;place-items:center;position:relative;width:120px;height:120px;margin-bottom:8px; }
+    .brand-loader-orbit { position:absolute;inset:4px;border:1px solid rgba(196,168,255,.35);border-radius:50%;animation:brandOrbit 4s linear infinite; }
+    .brand-loader-orbit::before { content:'';position:absolute;top:7px;left:14px;height:8px;width:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 14px var(--gold); }
+    .brand-loader-logo { display:block;position:relative;width:84px;height:84px;object-fit:contain;filter:drop-shadow(0 0 18px rgba(196,168,255,.35)); }
+    .loader-title { font:700 clamp(1.1rem,2vw,1.5rem)/1.2 'Space Grotesk',sans-serif;letter-spacing:.14em;color:var(--text); }
+    .loader-subtitle { font:600 .61rem 'Space Grotesk',sans-serif;letter-spacing:.19em;color:var(--gold); }
+    .brand-progress { width:min(210px,70%);height:3px;margin:13px 0 5px;border-radius:99px;overflow:hidden;background:rgba(139,92,246,.19); }
+    .brand-progress span { display:block;height:100%;width:35%;background:linear-gradient(90deg,var(--purple),var(--gold));border-radius:99px;animation:loadSlide 1.6s ease-in-out infinite alternate; }
+    .loader-message { color:var(--muted);font-size:.74rem; }
+    .loader-attribution { margin-top:10px;color:#746e86;font-size:.62rem; }
+    .show-sim-btn { pointer-events:auto;border-radius:9px;border:1px solid var(--border);padding:8px 12px;background:#291c39;color:white;font-size:.76rem; }
+    .show-sim-btn[hidden] { display:none; }
+    @keyframes brandOrbit { to {transform:rotate(360deg);} }
+    @keyframes loadSlide { from {transform:translateX(-110%);} to {transform:translateX(280%);} }
+    .spinner { width:31px;height:31px;border:3px solid rgba(139,92,246,.15);border-top-color:var(--purple-light);border-radius:50%;animation:spin .7s linear infinite; }
+    @keyframes spin { to{transform:rotate(360deg)} }
+    .viewer-controls { display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:15px; }
+    .action-btn { display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:42px;padding:10px 13px;background:rgba(139,92,246,.09);border:1px solid var(--border);border-radius:11px;color:var(--text);font-size:.78rem;font-weight:600;transition:border-color .2s,background .2s; }
+    .action-btn:hover { border-color:var(--purple);background:rgba(139,92,246,.16); }
+    .action-btn.primary { background:linear-gradient(135deg,#ffd166,#bc9245);color:#16110a;border-color:transparent; }
+    .action-btn.primary:hover { background:linear-gradient(135deg,#ffe09a,#e0ab42); }
+    .action-btn svg { flex:none;width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round; }
+    .viewer-tip { color:var(--subtle);font-size:.7rem;margin:15px 0 1px;line-height:1.65; }
+    .viewer-screen:fullscreen,.viewer-screen.is-fallback-fullscreen { border:0!important;border-radius:0!important;width:100vw!important;height:100vh!important;height:100dvh!important;min-height:0!important;aspect-ratio:auto!important;background:#070609; }
+    .viewer-screen:fullscreen iframe,.viewer-screen.is-fallback-fullscreen iframe { inset:0;width:100%;height:100%; }
+    .viewer-screen.is-fallback-fullscreen { position:fixed;inset:0;z-index:2000; }
+    .exit-fullscreen { display:none;position:absolute;right:16px;top:16px;z-index:5;padding:11px 14px;border:1px solid rgba(255,255,255,.27);border-radius:12px;background:rgba(15,13,19,.95);box-shadow:0 5px 30px rgba(0,0,0,.3);color:white;font-size:.79rem;font-weight:600; }
+    .viewer-screen:fullscreen .exit-fullscreen,.viewer-screen.is-fallback-fullscreen .exit-fullscreen { display:block; }
+    .credits { padding:17px 19px;margin-top:19px;border:1px solid var(--border-soft);background:rgba(255,255,255,.015);border-radius:14px;color:var(--muted);font-size:.76rem;line-height:1.8; }
+    .credits a { color:var(--purple-light);text-decoration:underline;text-underline-offset:3px; }
+    footer { border-top:1px solid rgba(139,92,246,.12);padding:30px 0;background:#050505;color:var(--muted); }
+    .footer-inner { display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;font-size:.78rem; }
+    .footer-brand { font:700 1rem 'Space Grotesk',sans-serif;color:var(--text); }
+    .footer-links { display:flex;align-items:center;gap:20px;flex-wrap:wrap; }
+    .footer-links a:hover { color:var(--gold); }
+    .sr-note { color:var(--subtle);font-size:.7rem; }
+    @media(max-width:1120px) { .hero-art { width:220px;height:220px; }.hero-inner { gap:24px; } }
+    @media(max-width:950px) {
+      .workspace { grid-template-columns:minmax(0,1fr); }
+      .viewer { grid-row:1;position:static; }
+      .directory { grid-row:2; }
+      .sim-list { max-height:380px; }
+      .hero-inner { grid-template-columns:1fr 170px;gap:20px; }
+      .hero-art { width:175px;height:175px;transform:scale(.75); }
+    }
+    @media(max-width:650px) {
+      .hero { padding-top:130px;padding-bottom:42px; }
+      .hero-inner { display:block; }
+      .hero-art { display:none; }
+      .hero h1 { letter-spacing:-.052em; }
+      .lab { padding-top:29px;padding-bottom:60px; }
+      .lab-heading { display:block; }
+      .lab-heading p { margin-top:12px; }
+      .hint { white-space:normal; }
+      .viewer { padding:14px; }
+      .viewer-screen { min-height:220px; }
+      .viewer-controls { gap:8px; }
+      .action-btn { flex:1;white-space:nowrap; }
+      .directory { padding:12px; }
+      .hero-pill { padding:10px 12px; }
+      .syllabus-head { align-items:flex-start; }
+      .syllabus-group { gap:7px; }
+      .syllabus-group-label { flex-basis:100%; }
+      .filter-btn { font-size:.72rem;padding:8px 10px; }
+      .brand-loader { width:90px;height:90px; }
+      .brand-loader-logo { width:63px;height:63px; }
+      .brand-loader-orbit { inset:1px; }
+      .loader-attribution { margin-top:4px; }
+    }
+    @media(prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important; } }
+  </style>
+</head>
+<body>
+<a class="skip" href="#simulations">Skip to simulations</a>
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html" aria-label="SR Physics home"><img src="logo1-mask.webp" alt="SR Physics logo"></a>
+    <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="index.html#about" class="nav-link">About</a>
+      <a href="results.html" class="nav-link">Results</a>
+      <a href="index.html#partners" class="nav-link">Student Reviews</a>
+      <a href="index.html#projects" class="nav-link">Class</a>
+      <a href="index.html#blog" class="nav-link">Gallery</a>
+      <a href="index.html#contact" class="nav-link">Contact</a>
+    </nav>
+    <button id="navToggle" class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <span class="eyebrow"><span class="eyebrow-dot"></span> SR Physics • Interactive lab</span>
+        <h1>Physics, brought<br><em>to life.</em></h1>
+        <p>Explore interactive PhET experiments organized around all 11 G.C.E. A/L Physics syllabus units in Sri Lanka. Learn, teach and explore here without leaving SR Physics.</p>
+        <div class="hero-statrow">
+          <div class="hero-pill"><strong id="heroCount">75</strong> Interactive simulations</div>
+          <div class="hero-pill">&#9636; &nbsp; Play directly on this page</div>
+          <div class="hero-pill">&#9974; &nbsp; Fullscreen classroom mode</div>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true"><div class="orbit"></div><div class="orbit"></div><div class="orbit"></div><div class="atom-core"></div><i class="atom-speck one"></i><i class="atom-speck two"></i><i class="atom-speck three"></i></div>
+    </div>
+  </section>
+
+  <section class="lab wrap" id="simulations" aria-labelledby="labTitle">
+    <div class="lab-heading">
+      <div><span class="mini-label">Explore • Experiment • Understand</span><h2 id="labTitle">Your virtual physics lab</h2></div>
+      <p>Choose your Grade 12 or Grade 13 syllabus unit, then open a simulation. Use fullscreen for teaching, smart boards and projectors.</p>
+    </div>
+    <div class="tools">
+      <label class="search-field" for="searchInput">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="7.4"></circle><path d="m16.4 16.4 5 5"></path></svg>
+        <input id="searchInput" type="search" placeholder="Search a topic or simulation..." autocomplete="off">
+        <button id="clearSearch" class="clear-btn" type="button" aria-label="Clear search">×</button>
+      </label>
+      <span class="hint" id="searchHint">Search or choose a topic below</span>
+    </div>
+    <div class="syllabus-head"><span class="mini-label">Sri Lanka G.C.E. A/L Physics • 11 syllabus units</span><div class="grade-bar" id="gradeBar" role="group" aria-label="Filter by school grade"></div></div>
+    <div class="syllabus-filters" id="categoryBar" aria-label="Filter by syllabus lesson"></div>
+
+    <div class="workspace">
+      <aside class="directory" aria-label="Simulation collection">
+        <div class="directory-head"><strong>Simulation library</strong><span id="resultCount" role="status" aria-live="polite">75 simulations</span></div>
+        <div class="sim-list" id="simList" role="list"></div>
+      </aside>
+
+      <div class="viewer" id="viewer" aria-label="Simulation viewer">
+        <div class="viewer-head">
+          <div><span class="viewer-kicker">Interactive simulation</span><h3 id="selectedTitle">Forces and Motion: Basics</h3><p class="viewer-category" id="selectedCategory">Unit 02 • Mechanics</p></div>
+        </div>
+        <div class="viewer-screen" id="viewerScreen">
+          <iframe id="simFrame" title="PhET Physics interactive simulation" allow="fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          <div class="viewer-loading" id="viewerLoading" aria-live="polite">
+            <div class="brand-loader">
+              <div class="brand-loader-orbit" aria-hidden="true"></div>
+              <img class="brand-loader-logo" src="logo1-mask.webp" alt="SR Physics">
+            </div>
+            <span class="loader-title">SR PHYSICS</span>
+            <span class="loader-subtitle">NEXT GEN PHYSICS • VIRTUAL LAB</span>
+            <div class="brand-progress" aria-hidden="true"><span></span></div>
+            <span id="loadMessage" class="loader-message">Preparing your interactive experiment...</span>
+            <button type="button" id="forceShow" class="show-sim-btn" hidden>Show simulation</button>
+            <span class="loader-attribution">Simulation by PhET Interactive Simulations</span>
+          </div>
+          <button type="button" class="exit-fullscreen" id="exitFullscreen" aria-label="Exit fullscreen simulation">✕ &nbsp; Exit fullscreen</button>
+        </div>
+        <div class="viewer-controls">
+          <button class="action-btn primary" type="button" id="fullscreenBtn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M21 16v5h-5M3 16v5h5"></path></svg><span id="fullscreenLabel">Fullscreen</span></button>
+          <button class="action-btn" type="button" id="reloadBtn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11a9 9 0 1 1-2.5-6.2M21 3v6h-6"></path></svg> Restart</button>
+          <button class="action-btn" type="button" id="copyBtn"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"></rect><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"></path></svg><span id="copyLabel">Copy class link</span></button>
+        </div>
+        <p class="viewer-tip">Tip: Select a simulation on the left. Fullscreen enlarges the same embedded experiment; it does not take students to another website. Internet access is required to load PhET simulations.</p>
+      </div>
+    </div>
+    <div class="credits">Simulations are created and maintained by <a href="https://phet.colorado.edu/" target="_blank" rel="noopener noreferrer">PhET Interactive Simulations, University of Colorado Boulder</a>, and embedded in SR Physics for educational access. This page includes PhET's HTML5 Physics collection plus relevant HTML5 simulations from its other subjects. Some older Java/Flash simulations cannot be embedded directly in this viewer. SR Physics is not affiliated with or endorsed by PhET.</div>
+  </section>
+</main>
+<footer>
+  <div class="wrap footer-inner"><div><div class="footer-brand">SR PHYSICS <span style="color:var(--gold)">·</span> Shamil Rathnayake</div><span class="sr-note">Next Gen Physics</span></div><nav class="footer-links" aria-label="Footer navigation"><a href="index.html">Home</a><a href="results.html">Results</a><a href="index.html#projects">Classes</a><a href="index.html#contact">Contact</a></nav><div>© 2026 SR PHYSICS</div></div>
+</footer>
+
+<script>
+'use strict';
+// Classroom-ready HTML5 Physics simulations and other PhET HTML5 experiments
+// relevant to Sri Lankan G.C.E. A/L Physics (official units 01–11).
+// Native Physics: 69 + relevant cross-listed HTML5 simulations: 6.
+const SIMULATIONS = [
+  {
+    "name": "Beta Decay",
+    "slug": "beta-decay",
+    "units": [
+      11
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Alpha Decay",
+    "slug": "alpha-decay",
+    "units": [
+      11
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Quantum Wave Interference",
+    "slug": "quantum-wave-interference",
+    "units": [
+      11
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Quantum Coin Toss",
+    "slug": "quantum-coin-toss",
+    "units": [
+      11
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Quantum Measurement",
+    "slug": "quantum-measurement",
+    "units": [
+      11
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Models of the Hydrogen Atom",
+    "slug": "models-of-the-hydrogen-atom",
+    "units": [
+      11
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Buoyancy: Basics",
+    "slug": "buoyancy-basics",
+    "units": [
+      2,
+      10
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Buoyancy",
+    "slug": "buoyancy",
+    "units": [
+      2,
+      10
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Generator",
+    "slug": "generator",
+    "units": [
+      7,
+      8
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Magnets and Electromagnets",
+    "slug": "magnets-and-electromagnets",
+    "units": [
+      7
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Magnet and Compass",
+    "slug": "magnet-and-compass",
+    "units": [
+      7
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Faraday's Electromagnetic Lab",
+    "slug": "faradays-electromagnetic-lab",
+    "units": [
+      7
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Projectile Data Lab",
+    "slug": "projectile-data-lab",
+    "units": [
+      2
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Build a Nucleus",
+    "slug": "build-a-nucleus",
+    "units": [
+      11
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Kepler's Laws",
+    "slug": "keplers-laws",
+    "units": [
+      5
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Sound Waves",
+    "slug": "sound-waves",
+    "units": [
+      3
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "My Solar System",
+    "slug": "my-solar-system",
+    "units": [
+      5
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Calculus Grapher",
+    "slug": "calculus-grapher",
+    "units": [
+      1
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Geometric Optics: Basics",
+    "slug": "geometric-optics-basics",
+    "units": [
+      3
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Geometric Optics",
+    "slug": "geometric-optics",
+    "units": [
+      3
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Density",
+    "slug": "density",
+    "units": [
+      2,
+      10
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Circuit Construction Kit: AC",
+    "slug": "circuit-construction-kit-ac",
+    "units": [
+      8,
+      9
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Circuit Construction Kit: AC - Virtual Lab",
+    "slug": "circuit-construction-kit-ac-virtual-lab",
+    "units": [
+      8,
+      9
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Normal Modes",
+    "slug": "normal-modes",
+    "units": [
+      3
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Fourier: Making Waves",
+    "slug": "fourier-making-waves",
+    "units": [
+      3
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Collision Lab",
+    "slug": "collision-lab",
+    "units": [
+      2
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Energy Skate Park",
+    "slug": "energy-skate-park",
+    "units": [
+      2
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Vector Addition",
+    "slug": "vector-addition",
+    "units": [
+      1,
+      2
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Curve Fitting",
+    "slug": "curve-fitting",
+    "units": [
+      1
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Gravity Force Lab: Basics",
+    "slug": "gravity-force-lab-basics",
+    "units": [
+      5
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Waves Intro",
+    "slug": "waves-intro",
+    "units": [
+      3
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Diffusion",
+    "slug": "diffusion",
+    "units": [
+      4
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Gases Intro",
+    "slug": "gases-intro",
+    "units": [
+      4
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Gas Properties",
+    "slug": "gas-properties",
+    "units": [
+      4
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Blackbody Spectrum",
+    "slug": "blackbody-spectrum",
+    "units": [
+      4,
+      11
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Masses and Springs: Basics",
+    "slug": "masses-and-springs-basics",
+    "units": [
+      2,
+      3
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Energy Forms and Changes",
+    "slug": "energy-forms-and-changes",
+    "units": [
+      4
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Wave Interference",
+    "slug": "wave-interference",
+    "units": [
+      3
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Coulomb's Law",
+    "slug": "coulombs-law",
+    "units": [
+      6
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Masses and Springs",
+    "slug": "masses-and-springs",
+    "units": [
+      2,
+      3
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Capacitor Lab: Basics",
+    "slug": "capacitor-lab-basics",
+    "units": [
+      6,
+      8
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Circuit Construction Kit: DC - Virtual Lab",
+    "slug": "circuit-construction-kit-dc-virtual-lab",
+    "units": [
+      8,
+      9
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Circuit Construction Kit: DC",
+    "slug": "circuit-construction-kit-dc",
+    "units": [
+      8,
+      9
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Pendulum Lab",
+    "slug": "pendulum-lab",
+    "units": [
+      2,
+      3
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Projectile Motion",
+    "slug": "projectile-motion",
+    "units": [
+      2
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "States of Matter: Basics",
+    "slug": "states-of-matter-basics",
+    "units": [
+      4,
+      10
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "States of Matter",
+    "slug": "states-of-matter",
+    "units": [
+      4,
+      10
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Gravity and Orbits",
+    "slug": "gravity-and-orbits",
+    "units": [
+      5
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Plinko Probability",
+    "slug": "plinko-probability",
+    "units": [
+      1
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Atomic Interactions",
+    "slug": "atomic-interactions",
+    "units": [
+      4,
+      10,
+      11
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Charges and Fields",
+    "slug": "charges-and-fields",
+    "units": [
+      6
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Rutherford Scattering",
+    "slug": "rutherford-scattering",
+    "units": [
+      11
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Bending Light",
+    "slug": "bending-light",
+    "units": [
+      3
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Hooke's Law",
+    "slug": "hookes-law",
+    "units": [
+      2,
+      10
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Molecules and Light",
+    "slug": "molecules-and-light",
+    "units": [
+      11
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Energy Skate Park: Basics",
+    "slug": "energy-skate-park-basics",
+    "units": [
+      2
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Faraday's Law",
+    "slug": "faradays-law",
+    "units": [
+      7,
+      8
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Wave on a String",
+    "slug": "wave-on-a-string",
+    "units": [
+      3
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Color Vision",
+    "slug": "color-vision",
+    "units": [
+      3
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Balancing Act",
+    "slug": "balancing-act",
+    "units": [
+      2
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Under Pressure",
+    "slug": "under-pressure",
+    "units": [
+      2,
+      10
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Friction",
+    "slug": "friction",
+    "units": [
+      2
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Forces and Motion: Basics",
+    "slug": "forces-and-motion-basics",
+    "units": [
+      2
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "John Travoltage",
+    "slug": "john-travoltage",
+    "units": [
+      6
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Gravity Force Lab",
+    "slug": "gravity-force-lab",
+    "units": [
+      5
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Balloons and Static Electricity",
+    "slug": "balloons-and-static-electricity",
+    "units": [
+      6
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Ohm's Law",
+    "slug": "ohms-law",
+    "units": [
+      8,
+      9
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Resistance in a Wire",
+    "slug": "resistance-in-a-wire",
+    "units": [
+      8,
+      9
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Build an Atom",
+    "slug": "build-an-atom",
+    "units": [
+      11
+    ],
+    "keywords": ""
+  },
+  {
+    "name": "Vector Addition: Equations",
+    "slug": "vector-addition-equations",
+    "units": [
+      1,
+      2
+    ],
+    "keywords": "vectors components resultant equations"
+  },
+  {
+    "name": "Greenhouse Effect",
+    "slug": "greenhouse-effect",
+    "units": [
+      4,
+      11
+    ],
+    "keywords": "thermal radiation infrared photons heat"
+  },
+  {
+    "name": "Isotopes and Atomic Mass",
+    "slug": "isotopes-and-atomic-mass",
+    "units": [
+      11
+    ],
+    "keywords": "nuclear isotopes atomic number mass number"
+  },
+  {
+    "name": "Projectile Sampling Distributions",
+    "slug": "projectile-sampling-distributions",
+    "units": [
+      1,
+      2
+    ],
+    "keywords": "measurement experimental uncertainty projectile motion data"
+  },
+  {
+    "name": "Least-Squares Regression",
+    "slug": "least-squares-regression",
+    "units": [
+      1
+    ],
+    "keywords": "graph best fit errors measurements regression"
+  },
+  {
+    "name": "Graphing Lines",
+    "slug": "graphing-lines",
+    "units": [
+      1,
+      2
+    ],
+    "keywords": "motion graphs gradients intercepts graphing"
+  }
+];
+const UNITS = [
+  {
+    "number": 1,
+    "name": "Measurement",
+    "icon": "📏",
+    "grade": 12
+  },
+  {
+    "number": 2,
+    "name": "Mechanics",
+    "icon": "⚙️",
+    "grade": 12
+  },
+  {
+    "number": 3,
+    "name": "Oscillations and Waves",
+    "icon": "〰️",
+    "grade": 12
+  },
+  {
+    "number": 4,
+    "name": "Thermal Physics",
+    "icon": "🌡️",
+    "grade": 12
+  },
+  {
+    "number": 5,
+    "name": "Gravitational Field",
+    "icon": "🪐",
+    "grade": 13
+  },
+  {
+    "number": 6,
+    "name": "Electrostatic Field",
+    "icon": "⚡",
+    "grade": 13
+  },
+  {
+    "number": 7,
+    "name": "Magnetic Field",
+    "icon": "🧲",
+    "grade": 13
+  },
+  {
+    "number": 8,
+    "name": "Current Electricity",
+    "icon": "🔌",
+    "grade": 13
+  },
+  {
+    "number": 9,
+    "name": "Electronics",
+    "icon": "💡",
+    "grade": 13
+  },
+  {
+    "number": 10,
+    "name": "Mechanical Properties of Matter",
+    "icon": "🧪",
+    "grade": 13
+  },
+  {
+    "number": 11,
+    "name": "Matter and Radiation",
+    "icon": "⚛️",
+    "grade": 13
+  }
+];
+const unitByNumber = new Map(UNITS.map(unit => [unit.number,unit]));
+const bySlug = new Map(SIMULATIONS.map(sim=>[sim.slug,sim]));
+const simList = document.getElementById('simList');
+const categoryBar = document.getElementById('categoryBar');
+const gradeBar = document.getElementById('gradeBar');
+const searchInput = document.getElementById('searchInput');
+const clearSearch = document.getElementById('clearSearch');
+const frame = document.getElementById('simFrame');
+const viewer = document.getElementById('viewer');
+const screen = document.getElementById('viewerScreen');
+const loading = document.getElementById('viewerLoading');
+const forceShow = document.getElementById('forceShow');
+const fullscreenBtn = document.getElementById('fullscreenBtn');
+const fullscreenLabel = document.getElementById('fullscreenLabel');
+let current = null;
+let filterUnit = 0;
+let gradeFilter = 0;
+let fallbackFullscreen = false;
+let loadSerial = 0;
+let loadTimeout = null;
+let fadeTimeout = null;
+let loadStartedAt = 0;
+
+function phetURL(sim) {
+  // Only hand-curated PhET entries are allowed to become iframe URLs.
+  return `https://phet.colorado.edu/sims/html/${sim.slug}/latest/${sim.slug}_en.html`;
+}
+function simFromAddress() { return bySlug.get(new URLSearchParams(location.search).get('sim')) || null; }
+function selectedUnitLabel(sim) {
+  return sim.units.map(n=>`Unit ${String(n).padStart(2,'0')} • ${unitByNumber.get(n).name}`).join('  /  ');
+}
+function selectSimulation(sim, {updateUrl=true,jump=false}={}) {
+  if(!sim || !bySlug.has(sim.slug)) return;
+  const changed = current?.slug !== sim.slug;
+  current = sim;
+  document.getElementById('selectedTitle').textContent=sim.name;
+  document.getElementById('selectedCategory').textContent=selectedUnitLabel(sim);
+  frame.title=`PhET simulation: ${sim.name}`;
+  if (changed || !frame.getAttribute('src')) loadSimulation();
+  if (updateUrl) {
+    const url=new URL(location.href);url.searchParams.set('sim',sim.slug);
+    history.replaceState({sim:sim.slug},'',url);
+  }
+  simList.querySelectorAll('.sim-item').forEach(btn => {
+    const chosen=btn.dataset.slug===sim.slug;
+    btn.classList.toggle('selected',chosen);
+    btn.setAttribute('aria-pressed',String(chosen));
+  });
+  if(jump && matchMedia('(max-width:950px)').matches) viewer.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function hideLoader() { loading.hidden=true;forceShow.hidden=true; }
+function loadSimulation() {
+  const serial=++loadSerial;
+  clearTimeout(loadTimeout);clearTimeout(fadeTimeout);
+  loading.hidden=false;
+  forceShow.hidden=true;
+  loadStartedAt=performance.now();
+  document.getElementById('loadMessage').textContent='Preparing your interactive experiment...';
+  // This wrapper covers PhET's loading screen but does not modify PhET itself.
+  frame.src=phetURL(current);
+  loadTimeout=setTimeout(()=>{
+    if(loadSerial!==serial || loading.hidden) return;
+    document.getElementById('loadMessage').textContent='Still loading — check your internet connection if needed.';
+    forceShow.hidden=false;
+  },20000);
+}
+frame.addEventListener('load',()=>{
+  if(!current) return;
+  const serial=loadSerial;
+  // Cross-origin iframes cannot report when PhET's own assets become fully ready.
+  // Keep SR's preloader briefly after navigation loads to hide the initial splash.
+  const remaining=Math.max(0,1700-(performance.now()-loadStartedAt));
+  clearTimeout(fadeTimeout);
+  fadeTimeout=setTimeout(()=>{
+    if(serial!==loadSerial) return;
+    clearTimeout(loadTimeout);hideLoader();
+  },Math.max(2000,remaining));
+});
+forceShow.addEventListener('click',hideLoader);
+
+function visibleSimulations() {
+  const q=searchInput.value.trim().toLowerCase();
+  return SIMULATIONS.filter(sim=>{
+    const permitted=sim.units.some(n=> (filterUnit===0 || filterUnit===n) &&
+        (gradeFilter===0 || unitByNumber.get(n).grade===gradeFilter));
+    if(!permitted) return false;
+    if(!q) return true;
+    const syllabus=sim.units.map(n=>`unit ${n} ${unitByNumber.get(n).name} grade ${unitByNumber.get(n).grade}`).join(' ');
+    return (sim.name+' '+sim.slug+' '+sim.keywords+' '+syllabus).toLowerCase().includes(q);
+  }).sort((a,b)=>a.name.localeCompare(b.name,'en'));
+}
+function makeFilterButton(text,count,active,callback) {
+  const btn=document.createElement('button');
+  btn.type='button';btn.className='filter-btn'+(active?' active':'');
+  btn.textContent=text+'  ';
+  const number=document.createElement('small');number.textContent=count;
+  btn.append(number);btn.setAttribute('aria-pressed',String(active));
+  btn.addEventListener('click',callback);
+  return btn;
+}
+function drawGrades() {
+  gradeBar.replaceChildren();
+  for (const grade of [0,12,13]) {
+    const btn=document.createElement('button');
+    btn.type='button';btn.className='grade-btn'+(gradeFilter===grade?' active':'');
+    btn.textContent=grade===0?'All units':`Grade ${grade}`;
+    btn.setAttribute('aria-pressed',String(gradeFilter===grade));
+    btn.addEventListener('click',()=>{
+      gradeFilter=grade;
+      if(filterUnit && grade && unitByNumber.get(filterUnit).grade!==grade) filterUnit=0;
+      drawGrades();drawCategories();drawList();
+    });
+    gradeBar.append(btn);
+  }
+}
+function drawCategories() {
+  categoryBar.replaceChildren();
+  const allrow=document.createElement('div');allrow.className='syllabus-group';
+  allrow.append(makeFilterButton('All 11 Units',SIMULATIONS.filter(s=>s.units.some(n=>!gradeFilter || unitByNumber.get(n).grade===gradeFilter)).length,filterUnit===0,()=>{ filterUnit=0;drawCategories();drawList(); }));
+  categoryBar.append(allrow);
+  for (const grade of [12,13]) {
+    if(gradeFilter && gradeFilter!==grade) continue;
+    const group=document.createElement('div');group.className='syllabus-group';
+    const label=document.createElement('span');label.className='syllabus-group-label';label.textContent=`Grade ${grade}`;
+    group.append(label);
+    for(const unit of UNITS.filter(unit=>unit.grade===grade)) {
+      const count=SIMULATIONS.filter(sim=>sim.units.includes(unit.number)).length;
+      const btn=makeFilterButton(`${String(unit.number).padStart(2,'0')}. ${unit.name}`,count,unit.number===filterUnit,()=>{filterUnit=unit.number;drawCategories();drawList();});
+      btn.title=`Unit ${unit.number} • ${unit.name} (Grade ${grade})`;
+      group.append(btn);
+    }
+    categoryBar.append(group);
+  }
+}
+function drawList() {
+  const sims=visibleSimulations();
+  simList.replaceChildren();
+  document.getElementById('resultCount').textContent=`${sims.length} of ${SIMULATIONS.length}`;
+  document.getElementById('searchHint').textContent=(sims.length===SIMULATIONS.length)
+    ? 'Search or choose a syllabus unit below' : `${sims.length} matching simulations`;
+  clearSearch.classList.toggle('show',searchInput.value.length>0);
+  if (!sims.length) {
+    const msg=document.createElement('p');msg.className='empty-results';
+    msg.textContent='No simulations match this lesson or search. Try another unit or keyword.';
+    simList.append(msg);return;
+  }
+  const fragment=document.createDocumentFragment();
+  sims.forEach(sim=>{
+    const btn=document.createElement('button');
+    btn.type='button';btn.className='sim-item'+(sim.slug===current?.slug?' selected':'');
+    btn.dataset.slug=sim.slug;btn.setAttribute('aria-pressed',String(sim.slug===current?.slug));
+    btn.setAttribute('aria-label',`Open ${sim.name} simulation`);
+    btn.setAttribute('role','listitem');
+    const icon=document.createElement('span');icon.className='sim-icon';
+    icon.textContent=unitByNumber.get(filterUnit||sim.units[0]).icon;
+    icon.setAttribute('aria-hidden','true');
+    const text=document.createElement('span');text.className='sim-item-text';
+    const title=document.createElement('span');title.className='sim-item-title';title.textContent=sim.name;
+    const subtitle=document.createElement('span');subtitle.className='sim-item-cat';
+    subtitle.textContent=sim.units.map(n=>`U${String(n).padStart(2,'0')} ${unitByNumber.get(n).name}`).join(' · ');
+    text.append(title,subtitle);
+    const arrow=document.createElement('span');arrow.className='sim-item-arrow';arrow.textContent='→';arrow.setAttribute('aria-hidden','true');
+    btn.append(icon,text,arrow);
+    btn.addEventListener('click',()=>selectSimulation(sim,{jump:true}));
+    fragment.append(btn);
+  });
+  simList.append(fragment);
+}
+searchInput.addEventListener('input',drawList);
+document.getElementById('clearSearch').addEventListener('click',()=>{searchInput.value='';drawList();searchInput.focus();});
+
+function inFullscreen() { return document.fullscreenElement===screen || fallbackFullscreen; }
+function reflectFullscreen() {
+  const on=inFullscreen();
+  fullscreenLabel.textContent=on?'Exit fullscreen':'Fullscreen';
+  fullscreenBtn.setAttribute('aria-label',on?'Exit simulation fullscreen':'Open simulation fullscreen');
+}
+function fallbackOn() { fallbackFullscreen=true;screen.classList.add('is-fallback-fullscreen');document.body.classList.add('screen-locked');reflectFullscreen(); }
+function fallbackOff() { fallbackFullscreen=false;screen.classList.remove('is-fallback-fullscreen');document.body.classList.remove('screen-locked');reflectFullscreen(); }
+async function toggleFullscreen() {
+  if (fallbackFullscreen) { fallbackOff();return; }
+  if (document.fullscreenElement===screen) { await document.exitFullscreen().catch(()=>{});reflectFullscreen();return; }
+  if (screen.requestFullscreen) {
+    try { await screen.requestFullscreen();reflectFullscreen();return; } catch(error) { /* iOS and restricted browsers: use local overlay instead. */ }
+  }
+  fallbackOn();
+}
+fullscreenBtn.addEventListener('click',toggleFullscreen);
+document.getElementById('exitFullscreen').addEventListener('click',toggleFullscreen);
+document.addEventListener('fullscreenchange',reflectFullscreen);
+document.addEventListener('keydown',event=>{if(event.key==='Escape' && fallbackFullscreen)fallbackOff();});
+document.getElementById('reloadBtn').addEventListener('click',()=>{if(current)loadSimulation();});
+document.getElementById('copyBtn').addEventListener('click',async()=>{
+  if(!current) return;
+  const u=new URL(location.href);u.searchParams.set('sim',current.slug);
+  const label=document.getElementById('copyLabel');
+  try {
+    if(navigator.clipboard && window.isSecureContext) await navigator.clipboard.writeText(u.toString());
+    else {
+      const field=document.createElement('textarea');field.value=u.toString();field.style.position='fixed';field.style.left='-9999px';document.body.append(field);field.select();
+      const copied=document.execCommand('copy');field.remove();if(!copied)throw new Error('Copy unavailable');
+    }
+    label.textContent='Link copied!';
+  } catch(error) { label.textContent='Copy address from browser'; }
+  setTimeout(()=>label.textContent='Copy class link',2200);
+});
+window.addEventListener('popstate',()=>{const sim=simFromAddress();if(sim)selectSimulation(sim,{updateUrl:false});});
+
+autoInit();
+function autoInit() {
+  document.getElementById('heroCount').textContent=SIMULATIONS.length;
+  const initial=simFromAddress() || bySlug.get('forces-and-motion-basics') || SIMULATIONS[0];
+  selectSimulation(initial,{updateUrl:false});
+  drawGrades();drawCategories();drawList();
+  const nav=document.getElementById('nav'),links=document.getElementById('navLinks'),toggle=document.getElementById('navToggle');
+  const mobile=matchMedia('(max-width:1080px)');
+  function syncMenu() { links.inert=mobile.matches&&!links.classList.contains('open'); }
+  function closeMenu() { links.classList.remove('open');toggle.setAttribute('aria-expanded','false');syncMenu(); }
+  toggle.addEventListener('click',()=>{const opened=links.classList.toggle('open');toggle.setAttribute('aria-expanded',String(opened));syncMenu();});
+  links.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+  mobile.addEventListener('change',()=>{closeMenu();syncMenu();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&links.classList.contains('open')){closeMenu();toggle.focus();}});
+  function updateNav() {nav.classList.toggle('scrolled',scrollY>30);}window.addEventListener('scroll',updateNav,{passive:true});updateNav();syncMenu();
+}
+</script>
+</body>
+</html>
