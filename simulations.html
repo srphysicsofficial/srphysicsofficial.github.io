@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Physics Simulations | SR Physics – Shamil Rathnayake</title>
-  <meta name="description" content="Explore 75 interactive PhET simulations organized by all 11 units of the Sri Lankan G.C.E. A/L Physics syllabus for Grades 12 and 13, without leaving SR Physics.">
+  <meta name="description" content="Explore 75 interactive physics simulations, presented by Shamil Rathnayake through SR Physics and organized by all 11 Grade 12 and Grade 13 Sri Lankan G.C.E. A/L Physics syllabus units.">
   <meta name="author" content="SR Physics – Shamil Rathnayake">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#090909">
@@ -14,7 +14,7 @@
   <meta property="og:site_name" content="SR Physics">
   <meta property="og:url" content="https://srphysics.lk/simulations.html">
   <meta property="og:title" content="Interactive Physics Simulations | SR Physics">
-  <meta property="og:description" content="Explore interactive PhET physics simulations right inside the SR Physics website, with a dedicated fullscreen laboratory.">
+  <meta property="og:description" content="Explore 75 interactive physics simulations presented by Shamil Rathnayake on SR Physics. Study all 11 Sri Lankan A/L syllabus units with a fullscreen virtual lab.">
   <meta property="og:image" content="https://srphysics.lk/logo1.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -171,6 +171,15 @@
     .viewer-screen:fullscreen .exit-fullscreen,.viewer-screen.is-fallback-fullscreen .exit-fullscreen { display:block; }
     .credits { padding:17px 19px;margin-top:19px;border:1px solid var(--border-soft);background:rgba(255,255,255,.015);border-radius:14px;color:var(--muted);font-size:.76rem;line-height:1.8; }
     .credits a { color:var(--purple-light);text-decoration:underline;text-underline-offset:3px; }
+    .simulation-source { margin:14px 0 0;padding:10px 12px;border-left:2px solid rgba(139,92,246,.35);color:var(--subtle);font-size:.64rem;line-height:1.65; }
+    .simulation-source a { color:var(--muted);text-decoration:underline;text-underline-offset:2px; }
+    .credits { padding:24px 26px; }
+    .credits .about-heading { display:block;color:var(--gold);font:700 .66rem 'Space Grotesk',sans-serif;letter-spacing:.13em; }
+    .credits h3 { margin:7px 0 12px;color:var(--text);font:700 clamp(1.1rem,2vw,1.5rem)/1.25 'Space Grotesk',sans-serif; }
+    .credits h3 span { color:var(--purple-light);font-size:.8rem;letter-spacing:.03em; }
+    .credits p { margin:8px 0 0;max-width:950px;font-size:.81rem;color:var(--muted);line-height:1.85; }
+    .credits strong { color:var(--gold);font-weight:600; }
+
     footer { border-top:1px solid rgba(139,92,246,.12);padding:30px 0;background:#050505;color:var(--muted); }
     .footer-inner { display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;font-size:.78rem; }
     .footer-brand { font:700 1rem 'Space Grotesk',sans-serif;color:var(--text); }
@@ -235,9 +244,9 @@
   <section class="hero">
     <div class="wrap hero-inner">
       <div>
-        <span class="eyebrow"><span class="eyebrow-dot"></span> SR Physics • Interactive lab</span>
+        <span class="eyebrow"><span class="eyebrow-dot"></span> SR Physics • With Shamil Rathnayake</span>
         <h1>Physics, brought<br><em>to life.</em></h1>
-        <p>Explore interactive PhET experiments organized around all 11 G.C.E. A/L Physics syllabus units in Sri Lanka. Learn, teach and explore here without leaving SR Physics.</p>
+        <p>Welcome to my virtual physics lab. I’m <strong style="color:var(--text)">Shamil Rathnayake</strong>, and I’ve brought together these interactive learning simulations for you, arranged around all 11 Sri Lankan G.C.E. A/L Physics syllabus units. Discover physics through hands-on exploration, right here on SR Physics.</p>
         <div class="hero-statrow">
           <div class="hero-pill"><strong id="heroCount">75</strong> Interactive simulations</div>
           <div class="hero-pill">&#9636; &nbsp; Play directly on this page</div>
@@ -250,7 +259,7 @@
 
   <section class="lab wrap" id="simulations" aria-labelledby="labTitle">
     <div class="lab-heading">
-      <div><span class="mini-label">Explore • Experiment • Understand</span><h2 id="labTitle">Your virtual physics lab</h2></div>
+      <div><span class="mini-label">Brought to you by Shamil Rathnayake</span><h2 id="labTitle">Your virtual physics lab</h2></div>
       <p>Choose your Grade 12 or Grade 13 syllabus unit, then open a simulation. Use fullscreen for teaching, smart boards and projectors.</p>
     </div>
     <div class="tools">
@@ -275,7 +284,7 @@
           <div><span class="viewer-kicker">Interactive simulation</span><h3 id="selectedTitle">Forces and Motion: Basics</h3><p class="viewer-category" id="selectedCategory">Unit 02 • Mechanics</p></div>
         </div>
         <div class="viewer-screen" id="viewerScreen">
-          <iframe id="simFrame" title="PhET Physics interactive simulation" allow="fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          <iframe id="simFrame" title="Physics interactive simulation" allow="fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
           <div class="viewer-loading" id="viewerLoading" aria-live="polite">
             <div class="brand-loader">
               <div class="brand-loader-orbit" aria-hidden="true"></div>
@@ -286,7 +295,7 @@
             <div class="brand-progress" aria-hidden="true"><span></span></div>
             <span id="loadMessage" class="loader-message">Preparing your interactive experiment...</span>
             <button type="button" id="forceShow" class="show-sim-btn" hidden>Show simulation</button>
-            <span class="loader-attribution">Simulation by PhET Interactive Simulations</span>
+            <span class="loader-attribution">Presented through SR Physics · Shamil Rathnayake</span>
           </div>
           <button type="button" class="exit-fullscreen" id="exitFullscreen" aria-label="Exit fullscreen simulation">✕ &nbsp; Exit fullscreen</button>
         </div>
@@ -295,10 +304,16 @@
           <button class="action-btn" type="button" id="reloadBtn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11a9 9 0 1 1-2.5-6.2M21 3v6h-6"></path></svg> Restart</button>
           <button class="action-btn" type="button" id="copyBtn"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"></rect><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"></path></svg><span id="copyLabel">Copy class link</span></button>
         </div>
-        <p class="viewer-tip">Tip: Select a simulation on the left. Fullscreen enlarges the same embedded experiment; it does not take students to another website. Internet access is required to load PhET simulations.</p>
+        <p class="viewer-tip">Tip: Select a simulation on the left. Fullscreen enlarges the same embedded experiment; it does not take students to another website. Internet access is required to use these online simulations.</p>
+          <p class="simulation-source">Simulation by <a href="https://phet.colorado.edu/" target="_blank" rel="noopener noreferrer">PhET Interactive Simulations, University of Colorado Boulder</a>, licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener noreferrer">CC BY-NC 4.0</a> (<a href="https://phet.colorado.edu/" target="_blank" rel="noopener noreferrer">https://phet.colorado.edu</a>).</p>
       </div>
     </div>
-    <div class="credits">Simulations are created and maintained by <a href="https://phet.colorado.edu/" target="_blank" rel="noopener noreferrer">PhET Interactive Simulations, University of Colorado Boulder</a>, and embedded in SR Physics for educational access. This page includes PhET's HTML5 Physics collection plus relevant HTML5 simulations from its other subjects. Some older Java/Flash simulations cannot be embedded directly in this viewer. SR Physics is not affiliated with or endorsed by PhET.</div>
+    <div class="credits" id="aboutShamil">
+        <span class="about-heading">A NOTE FROM YOUR PHYSICS EDUCATOR</span>
+        <h3>Shamil Rathnayake <span>· SR PHYSICS</span></h3>
+        <p>I’m Shamil Rathnayake, an electrical and electronic engineer and A/L Physics lecturer. My goal is to make difficult physics ideas simpler and more practical. I’ve organized this collection of interactive learning tools by Sri Lanka’s Grade 12 and Grade 13 Physics syllabus so you can explore, experiment, and build a clearer understanding of every lesson.</p>
+        <p>Whether you’re learning at home or using a smart board in class, I hope this space helps you see physics in action. <strong>Keep exploring — Next Gen Physics.</strong></p>
+      </div>
   </section>
 </main>
 <footer>
@@ -1044,7 +1059,7 @@ function selectSimulation(sim, {updateUrl=true,jump=false}={}) {
   current = sim;
   document.getElementById('selectedTitle').textContent=sim.name;
   document.getElementById('selectedCategory').textContent=selectedUnitLabel(sim);
-  frame.title=`PhET simulation: ${sim.name}`;
+  frame.title=`Physics simulation: ${sim.name}`;
   if (changed || !frame.getAttribute('src')) loadSimulation();
   if (updateUrl) {
     const url=new URL(location.href);url.searchParams.set('sim',sim.slug);
